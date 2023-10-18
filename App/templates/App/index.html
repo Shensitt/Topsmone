@@ -1,9 +1,34 @@
-<html>
-<head><title></title></head>
+﻿<html>
+{% load static %}
 
+<head>
+    <title>Topsmone</title>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <a href="/">
+                        <img src="{% static 'Images/topsmone-Recovered.png' %}" alt="Логотип" width="30" />
+                    </a>
+                </td>
+                <td>
+                    <a href="about">
+                        О нас
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</head>
 <body>
+    <table></table>
+    {% block navbarOnAbout %}
+    <table></table>
 
-{{ content }}
+    {% endblock navbarOnAbout %}
+
+
+
 
 </body>
 </html>
