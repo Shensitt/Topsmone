@@ -1,7 +1,7 @@
 body
 {
-    padding-left:15px;
-    padding-right:15px;
+    /*padding-left:15px;
+    padding-right:15px;*/
 }
 
 .text{
@@ -13,5 +13,5 @@ body
 }
 
 .table{
-    padding-top:50px;
+    padding-top:25px;
 }

@@ -1,42 +1,50 @@
-﻿ {% extends 'index.html' %}
-
+﻿{% extends 'index.html' %}
 
 {% block navbarOnAbout %}
+{% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about.css' %}">
+<div>
+    <table class="table">
+        <tr>
+            <td colspan="3">
+                <p class="text">
+                    Компания Topsmone была основана в 2023 году и сразу поставила перед собой большую цель - создать носимые устроства, достойные кармана своего пользователя.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p class="text">
+                    Мы создаем
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="text_2">
+                    Смартфоны с лучшей производительностью
 
-    {% load static %}
+                </p>
+                {% block link1 %}
+                {% endblock link1 %}
+            </td>
+            <td>
+                <p class="text_2">
+                    Эргономику с премиальными материалами корпуса
+                    {% block link2 %}
+                    {% endblock link2 %}
+                </p>
+            </td>
+            <td>
+                <p class="text_2">
+                    Воспоминания с кристально-чистой оптикой камеры и большим объемом памяти
+                    {% block link3 %}
+                    {% endblock link3 %}
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
 
-<table class="table">
-    <tr>
-        <td colspan="3">
-            <p class="text">
-                Компания Topsmone была основана в 2023 году и сразу поставила перед собой большую цель - создать носимые устроства, достойные кармана своего пользователя.
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3">
-            <p class="text">
-                Мы создаем
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p class="text_2">
-                Смартфоны с лучшей производительностью
-            </p>
-        </td>
-        <td>
-            <p class="text_2">
-                Эргономику с премиальными материалами корпуса
-            </p>
-        </td>
-        <td>
-            <p class="text_2">
-                Воспоминания с кристально-чистой оптикой камеры и большим объемом памяти
-            </p>
-        </td>
-    </tr>
-</table>
-    {% endblock navbarOnAbout %}
+{% endblock navbarOnAbout %}

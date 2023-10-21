@@ -1,34 +1,20 @@
-﻿<html>
-{% load static %}
+﻿{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/index.css' %}">
 
+<html>
 <head>
     <title>Topsmone</title>
-    <div>
-        <table>
-            <tr>
-                <td>
-                    <a href="/">
-                        <img src="{% static 'Images/topsmone-Recovered.png' %}" alt="Логотип" width="30" />
-                    </a>
-                </td>
-                <td>
-                    <a href="about">
-                        О нас
-                    </a>
-                </td>
-            </tr>
-        </table>
-    </div>
 </head>
 <body>
-    <table></table>
+    <a href="/">
+        <img src="{% static 'Images/topsmone-Recovered.png' %}" alt="Логотип" width="30" />
+    </a>
+
+    <a href="about">
+        О нас
+    </a>
+       
     {% block navbarOnAbout %}
-    <table></table>
-
     {% endblock navbarOnAbout %}
-
-
-
-
 </body>
 </html>
