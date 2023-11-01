@@ -1,19 +1,13 @@
 ﻿{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles/index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}">
 
 <html>
 <head>
     <title>Topsmone</title>
 </head>
 <body>
-    <a href="/">
-        <img src="{% static 'Images/topsmone-Recovered.png' %}" alt="Логотип" width="30" />
-    </a>
+    {% include 'navbar.html' %}   
 
-    <a href="about">
-        О нас
-    </a>
-       
     {% block navbarOnAbout %}
     {% endblock navbarOnAbout %}
 </body>

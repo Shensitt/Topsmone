@@ -48,11 +48,11 @@
     <Content Include="App\static\Images\Links\link1snap.jpg" />
     <Content Include="App\static\Images\Links\link2.jpg" />
     <Content Include="App\static\Images\topsmone-Recovered.png" />
-    <Content Include="App\static\styles\about.css" />
-    <Content Include="App\static\styles\index.css" />
+    <Content Include="App\static\styles\bootstrap.css" />
     <Content Include="App\templates\App\about.html" />
     <Content Include="App\templates\App\index.html" />
     <Content Include="App\templates\App\about_links.html" />
+    <Content Include="App\templates\App\navbar.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
