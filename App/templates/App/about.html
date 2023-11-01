@@ -2,47 +2,35 @@
 
 {% block navbarOnAbout %}
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}">
 
-<div>
-    <table >
-        <tr>
-            <td colspan="3">
-                <p >
-                    Компания Topsmone была основана в 2023 году и сразу поставила перед собой большую цель - создать носимые устроства, достойные кармана своего пользователя.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <p >
-                    Мы стремимся создать
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>
-                    Смартфоны с лучшей производительностью
-                    {% block link1 %}
-                    {% endblock link1 %}
-                </p>
-            </td>
-            <td>
-                <p >
-                    Эргономику с премиальными материалами корпуса
-                    {% block link2 %}
-                    {% endblock link2 %}
-                </p>
-            </td>
-            <td>
-                <p >
-                    Воспоминания с кристально-чистой оптикой камеры и большим объемом памяти
-                    {% block link3 %}
-                    {% endblock link3 %}
-                </p>
-            </td>
-        </tr>
-    </table>
+<div class="row" style="padding-top: 50px;">
+  
+    <div class="col-md-4" style="padding: 3%">
+        <a href="https://www.kimovil.com/ru/compare-smartphones/order.kiPerformance">
+            <p style="padding: 3%">
+                Смартфоны с лучшей производительностью
+            </p>
+            <img src="{% static 'Images/Links/link1snap.jpg' %}" width="340" height="250" alt="Изображение ссылки 1" />
+        </a>
+    </div>
+         
+    <div class="col-md-4" style="padding: 3%">
+        <a href="https://www.kimovil.com/ru/compare-smartphones/order.dm+userOpinionOverallSatisfactionAverage">
+            <p style ="padding: 3%">Эргономику с премиальными материалами корпуса</p>
+            <img src="{% static 'Images/Links/link2.jpg' %}" width="340" height="250" alt="Изображение ссылки 2" />
+        </a>
+    </div>
+           
+    <div class="col-md-4" style="padding: 3%;">
+        <a href="https://www.kimovil.com/ru/compare-smartphones/order.kiCamera">
+            <p style ="padding: 3%">
+                Воспоминания с кристально-чистой оптикой камеры и большим объемом памяти
+            </p>
+            <img src="{% static 'Images/Links/link1.jpg' %}" width="340" height="250" alt="Изображение ссылки 3" />
+        </a>
+    </div>
+            
 </div>
 
 {% endblock navbarOnAbout %}
