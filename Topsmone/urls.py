@@ -20,12 +20,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from App.views import index_page,  about_page
+from App.views import contacts_page, index_page,  about_page, phones_page
 # from App.views import index_page,navbar
 
 urlpatterns = [
     # Uncomment the next line to enable the admin:
     path('',index_page),
     path('admin/', admin.site.urls),
-    path('about',about_page)
+    path('about',about_page),
+    path('phones',phones_page),
+    path('contacts',contacts_page)
 ]
