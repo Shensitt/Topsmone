@@ -52,7 +52,6 @@
     <Content Include="App\static\styles\bootstrap.css" />
     <Content Include="App\templates\App\about.html" />
     <Content Include="App\templates\App\index.html" />
-    <Content Include="App\templates\App\about_links.html" />
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>

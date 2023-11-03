@@ -7,4 +7,4 @@ def index_page(request):
     return render(request, 'index.html')
 
 def about_page(request):
-     return render(request, 'about_links.html')
+     return render(request, 'about.html')
