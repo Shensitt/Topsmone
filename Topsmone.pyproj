@@ -50,9 +50,11 @@
     <Content Include="App\static\Images\topsmone-Recovered.png" />
     <Content Include="App\static\scripts\bootstrap.js" />
     <Content Include="App\static\styles\bootstrap.css" />
+    <Content Include="App\static\styles\site.css" />
     <Content Include="App\templates\App\about.html" />
     <Content Include="App\templates\App\contacts.html" />
     <Content Include="App\templates\App\index.html" />
+    <Content Include="App\templates\App\links.html" />
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="App\templates\App\phones.html" />
     <Content Include="requirements.txt" />

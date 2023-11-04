@@ -1,0 +1,65 @@
+﻿{% extends 'index.html' %}
+
+{% block navbarOnAbout %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/site.css' %}">
+
+<div class="tableblock">
+    <table cellpadding="10">
+        <thead class="thead">
+            <tr>
+                <th colspan="3" class="text-center thead-text">
+                    ВЫБИРАЙ ДЛЯ СЕБЯ
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            <tr class="tbody-row">
+                <th class="text-center tbody-col">
+                    СМАРТФОНЫ С ЛУЧШЕЙ ПРОИЗВОДИТЕЛЬНОСТЬЮ
+                </th>
+                <th class="text-center tbody-col">
+                    ЭРГОНОМИКУ С ПРЕМИАЛЬНЫМИ МАТЕРИАЛАМИ КОРПУСА
+                </th>
+                <th class="text-center tbody-col">
+                    ЯРКИЕ ВОСПОМИНАНИЯ С КРИСТАЛЬНО-ЧИСТОЙ ОПТИКОЙ КАМЕРЫ И БОЛЬШИМ ОБЪЕМОМ ПАМЯТИ
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <a href="https://www.kimovil.com/ru/compare-smartphones/order.kiPerformance">
+                            <p>
+                                <img class="col-md-12 image" src="{% static 'Images/Links/link1snap.jpg' %}" alt="Изображение ссылки 1" />
+                            </p>
+                            <p class="btn-info image-more-text">Узнать больше &raquo;</p>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a href="https://www.kimovil.com/ru/compare-smartphones/order.dm+userOpinionOverallSatisfactionAverage">
+                            <p>
+                                <img class="col-md-12 image" src="{% static 'Images/Links/link2.jpg' %}" alt="Изображение ссылки 2" />
+                            </p>
+                            <p class="btn-info image-more-text">Узнать больше &raquo;</p>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a href="https://www.kimovil.com/ru/compare-smartphones/order.kiCamera">
+                            <p>
+                                <img class="col-md-12 image" src="{% static 'Images/Links/link1.jpg' %}" alt="Изображение ссылки 3" />
+                            </p>
+                            <p class="btn-info image-more-text">Узнать больше &raquo;</p>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock navbarOnAbout %}
