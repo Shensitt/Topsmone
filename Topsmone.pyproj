@@ -32,6 +32,9 @@
   <ItemGroup>
     <Compile Include="App\admin.py" />
     <Compile Include="App\apps.py" />
+    <Compile Include="App\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="App\migrations\__init__.py" />
     <Compile Include="App\models.py" />
     <Compile Include="App\tests.py" />
