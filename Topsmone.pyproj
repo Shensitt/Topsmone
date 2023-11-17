@@ -61,7 +61,6 @@
     <Content Include="App\templates\App\links.html" />
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="App\templates\App\phones.html" />
-    <Content Include="App\templates\App\pool.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
