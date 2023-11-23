@@ -29,5 +29,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about',about_page),
     path('phones',phones_page),
-    path('contacts',anketa)
+    path('contacts', anketa)
 ]

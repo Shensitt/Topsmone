@@ -14,25 +14,25 @@
 <div>
     <form method="post">
         {% csrf_token %}
-        <label for="{{form.name.1}}">{{form.name.label}}:</label>
+        <label for="{{form.name.id_for_label}}">{{form.name.label}}:</label>
         {{form.name}}<br />
 
-        <label for="{{form.city.1}}">{{form.city.label}}:</label>
+        <label for="{{form.city.id_for_label}}">{{form.city.label}}:</label>
         {{form.city}}<br />
 
-        <label for="{{form.gender.1}}">{{form.gender.label}}:</label>
+        <label for="{{form.gender.id_for_label}}">{{form.gender.label}}:</label>
         {{form.gender}}<br />
 
-        <label for="{{form.job.1}}">{{form.job.label}}:</label>
+        <label for="{{form.job.id_for_label}}">{{form.job.label}}:</label>
         {{form.job}}<br />
 
-        <label for="{{form.notice.1}}">{{form.notice.label}}:</label>
+        <label for="{{form.notice.id_for_label}}">{{form.notice.label}}:</label>
         {{form.notice}}<br />
 
-        <label for="{{form.email.1}}">{{form.email.label}}:</label>
+        <label for="{{form.email.id_for_label}}">{{form.email.label}}:</label>
         {{form.email}}<br />
 
-        <label for="{{form.message.1}}">{{form.message.label}}:</label>
+        <label for="{{form.message.id_for_label}}">{{form.message.label}}:</label>
         {{form.message}}<br />
 
         <input type="submit" value="Отправить" />
@@ -90,7 +90,6 @@
         {{ data.message}}
     </li>
 </ul>
-
 {% endif %}
 
 {% endblock navbarOnAbout %}

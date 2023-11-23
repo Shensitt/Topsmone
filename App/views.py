@@ -19,7 +19,7 @@ def phones_page(request):
 def anketa(request):
     assert isinstance(request, HttpRequest) 
     data=None
-    gender={'1','Мужчина', '2', 'Женщина'}
+    gender={'1':'Мужчина', '2': 'Женщина'}
     if request.method=='POST':
         form=ContactForm(request.POST)
         if form.is_valid():
@@ -29,20 +29,19 @@ def anketa(request):
             data['job']=form.cleaned_data['job']
             data['gender']=form.cleaned_data['gender']
             data['email']=form.cleaned_data['email']
-            data['message']=form.cleaned_data['message']
             if(form.cleaned_data['notice']==True):
                 data['notice']='Да'
             else:
                 data['notice']='Нет'
-                
+            data['message']=form.cleaned_data['message']
             form=None
     else:
         form=ContactForm()
-        return render(
-            request,
-            'app/contacts.html',
-            {
-                'form':form,
-                'data':data
-            }
-        )
+    return render(
+        request,
+        'app/contacts.html',
+        {
+            'form':form,
+            'data':data
+        }
+    )
