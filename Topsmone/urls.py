@@ -17,10 +17,11 @@ Including another URLconf
 """
 
 # Uncomment next two lines to enable admin:
+from os import name
 from django.contrib import admin
 from django.urls import path
 
-from App.views import anketa, contacts_page, index_page,  about_page, phones_page
+from App.views import anketa, contacts_page, index_page,  about_page, phones_page, registration
 # from App.views import index_page,navbar
 
 urlpatterns = [
@@ -29,5 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about',about_page),
     path('phones',phones_page),
-    path('contacts', anketa)
+    path('contacts', anketa),
+    path('registration', registration, name='registration')
 ]

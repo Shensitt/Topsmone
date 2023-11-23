@@ -1,6 +1,8 @@
-﻿from django.http import HttpRequest
-from django.shortcuts import render
+﻿from datetime import datetime
+from django.http import HttpRequest
+from django.shortcuts import redirect, render
 from .forms import ContactForm 
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -45,3 +47,32 @@ def anketa(request):
             'data':data
         }
     )
+
+def registration(request):
+    if request.method == 'POST':
+        regform = UserCreationForm(request.POST)
+        if regform.is_valid():
+            reg_f = regform.save(commit=False)
+            reg_f.is_staff=False
+            reg_f.is_active=True
+            reg_f.is_superuser=False
+            reg_f.date_joined=datetime.now()
+            reg_f.last_login=datetime.now()
+            
+            regform.save()
+
+            return redirect('home')
+    else:
+        regform=UserCreationForm()
+        
+    assert isinstance(request,HttpRequest)
+    return render(
+        request,
+        'app/registration.html',
+        {
+            'regform':regform,
+            'year':datetime.now().year
+        }
+    )
+            
+            
