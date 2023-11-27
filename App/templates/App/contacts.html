@@ -35,7 +35,19 @@
         <label for="{{form.message.id_for_label}}">{{form.message.label}}:</label>
         {{form.message}}<br /><br />
 
-        <input type="submit" value="Отправить" />
+        <input type="submit" value="Отправить" id="send">
+        <script>
+            function b_color_in() {
+                $('#send').css('background-color', '#DBDFEA');
+                $('#send').css('color', 'Black');
+            }
+            function b_color_out() {
+                $('#send').css('background-color', '');
+                $('#send').css('color', '');
+            }
+            $('#send').mouseover(b_color_in);
+            $('#send').mouseout(b_color_out);
+        </script>
     </form>
 </div>
 {% else %}
