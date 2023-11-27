@@ -15,25 +15,25 @@
     <form method="post">
         {% csrf_token %}
         <label for="{{form.name.id_for_label}}">{{form.name.label}}:</label>
-        {{form.name}}<br />
+        {{form.name}}<br /><br />
 
         <label for="{{form.city.id_for_label}}">{{form.city.label}}:</label>
-        {{form.city}}<br />
+        {{form.city}}<br /><br />
 
         <label for="{{form.gender.id_for_label}}">{{form.gender.label}}:</label>
-        {{form.gender}}<br />
+        {{form.gender}}<br /><br />
 
         <label for="{{form.job.id_for_label}}">{{form.job.label}}:</label>
-        {{form.job}}<br />
+        {{form.job}}<br /><br />
 
         <label for="{{form.notice.id_for_label}}">{{form.notice.label}}:</label>
-        {{form.notice}}<br />
+        {{form.notice}}<br /><br />
 
         <label for="{{form.email.id_for_label}}">{{form.email.label}}:</label>
-        {{form.email}}<br />
+        {{form.email}}<br /><br />
 
         <label for="{{form.message.id_for_label}}">{{form.message.label}}:</label>
-        {{form.message}}<br />
+        {{form.message}}<br /><br />
 
         <input type="submit" value="Отправить" />
     </form>
@@ -46,14 +46,14 @@
 <h3 style=" text-align:center">
     Вы сообщили о себе следующее:
 </h3>
-<ul style="text-align:center">
-    <li>
+<ul style="text-align:center; padding-top:25px;">
+    <li >
         <span>
             Имя:
         </span>
         {{ data.name}}
     </li>
-    <li>
+    <li style=" background-color: #DBDFEA;">
         <span>
             Город:
         </span>
@@ -65,7 +65,7 @@
         </span>
         {{ data.gender}}
     </li>
-    <li>
+    <li style=" background-color: #DBDFEA;">
         <span>
             Работа:
         </span>
@@ -77,7 +77,7 @@
         </span>
         {{ data.notice}}
     </li>
-    <li>
+    <li style=" background-color: #DBDFEA;">
         <span>
             Ваш e-mail:
         </span>

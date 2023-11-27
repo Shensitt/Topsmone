@@ -9,4 +9,4 @@ class ContactForm(forms.Form):
                                widget=forms.RadioSelect)
     notice = forms.BooleanField(label="Получать новости сайта на e-mail?", required=False)    
     email = forms.CharField(label="Ваш e-mail",min_length=7)
-    message = forms.CharField(label="Сообщение", widget=forms.Textarea(attrs={'rows':12, 'cols':20}))
+    message = forms.CharField(label="Сообщение", widget=forms.Textarea(attrs={'rows':8, 'cols':40}))
