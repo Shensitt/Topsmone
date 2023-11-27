@@ -9,6 +9,9 @@ from django.contrib.auth.forms import UserCreationForm
 def index_page(request):
     return render(request, 'links.html')
 
+def login_page(request):
+    return render(request, 'login.html')
+
 def about_page(request):
      return render(request, 'about.html')
 

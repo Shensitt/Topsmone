@@ -21,7 +21,7 @@ from os import name
 from django.contrib import admin
 from django.urls import path
 
-from App.views import anketa, contacts_page, index_page,  about_page, phones_page, registration
+from App.views import anketa, contacts_page, index_page,  about_page, login_page, phones_page, registration
 # from App.views import index_page,navbar
 
 urlpatterns = [
@@ -31,5 +31,6 @@ urlpatterns = [
     path('about',about_page),
     path('phones',phones_page),
     path('contacts', anketa),
+    path('login', login_page),
     path('registration', registration, name='registration')
 ]

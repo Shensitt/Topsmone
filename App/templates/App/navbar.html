@@ -21,9 +21,15 @@
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="contacts">Обратная связь</a>
                 </li>
+
+                {% if not user.is_authenticated %}
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="registration">Регистрация</a>
                 </li>
+                {% endif %}
+
+                {% include 'app/loginpartial.html' %}
+
             </ul>
         </div>
     </div>
