@@ -5,16 +5,26 @@
 <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/site.css' %}">
 
-<h2>
+<h2 style="padding-top:50px; text-align:center">
     Регистрация пользователя
 </h2>
-<form method="POST" >
+<form method="POST" style="padding-top:25px; text-align:center" >
     {% csrf_token %}
     <div>
         {{regform.as_p}}
-        <button type="submit" class="save btn btn-default">
-            Зарегистрировать
-        </button>
+        <input type="submit" value="Зарегистрировать" id="send">
+        <script>
+            function b_color_in() {
+                $('#send').css('background-color', '#DBDFEA');
+                $('#send').css('color', 'Black');
+            }
+            function b_color_out() {
+                $('#send').css('background-color', '');
+                $('#send').css('color', '');
+            }
+            $('#send').mouseover(b_color_in);
+            $('#send').mouseout(b_color_out);
+        </script>
     </div>
 </form>
 
