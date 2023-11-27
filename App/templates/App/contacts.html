@@ -7,11 +7,11 @@
 
 {% if form != None %}
 <br>
-<h2 style="padding-top:50px">
+<h2 style="padding-top:50px; text-align:center">
     Отправьте пожалуйста заполненную анкету
 </h2>
 <br>
-<div>
+<div style=" text-align:center">
     <form method="post">
         {% csrf_token %}
         <label for="{{form.name.id_for_label}}">{{form.name.label}}:</label>
@@ -40,13 +40,13 @@
 </div>
 {% else %}
 <br>
-<h2>
+<h2 style="padding-top:50px; text-align:center">
     Благодарим за предоставленную информацию!
 </h2>
-<h3>
+<h3 style=" text-align:center">
     Вы сообщили о себе следующее:
 </h3>
-<ul>
+<ul style="text-align:center">
     <li>
         <span>
             Имя:
