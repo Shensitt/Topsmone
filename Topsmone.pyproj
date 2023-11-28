@@ -54,6 +54,7 @@
     <Content Include="App\static\Images\topsmone-Recovered.png" />
     <Content Include="App\static\scripts\bootstrap.js" />
     <Content Include="App\static\scripts\jquery-3.7.1.js" />
+    <Content Include="App\static\scripts\jquery.validate.min.js" />
     <Content Include="App\static\styles\bootstrap.css" />
     <Content Include="App\static\styles\site.css" />
     <Content Include="App\templates\App\about.html" />

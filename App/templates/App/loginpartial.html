@@ -1,4 +1,9 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/site.css' %}">
+
 {% if user.is_authenticated %}
+
 <form id="logoutForm" action="/logout/" method="post" class="navbar-right">
     {% csrf_token %}
     <ul class="nav navbar-nav navbar-right">
@@ -8,9 +13,12 @@
 </form>
 
 {% else %}
-
+<!-- 
 <ul class="nav navbar-nav navbar-right">
     <li><a href="{% url 'login' %}">Войти</a></li>
-</ul>
+</ul> -->
+<li class="nav-item navbar-item navbar-right">
+    <a class="nav-link active" aria-current="page" href="login">Войти</a>
+</li>
 
 {% endif %}

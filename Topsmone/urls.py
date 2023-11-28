@@ -18,19 +18,35 @@ Including another URLconf
 
 # Uncomment next two lines to enable admin:
 from os import name
+from re import T
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth.views import LoginView, LogoutView
+from App import forms, views
+from datetime import datetime
 
-from App.views import anketa, contacts_page, index_page,  about_page, login_page, phones_page, registration
-# from App.views import index_page,navbar
+
+from App.views import anketa, contacts_page, index_page,  about_page, phones_page, registration
 
 urlpatterns = [
     # Uncomment the next line to enable the admin:
     path('',index_page),
     path('admin/', admin.site.urls),
-    path('about',about_page),
+    path('about',views.about_page, name="about_page"),
     path('phones',phones_page),
     path('contacts', anketa),
-    path('login', login_page),
+    path('login',
+         LoginView.as_view
+         (
+             template_name='App/login.html',
+             authentication_form=forms.BootstrapAuthenticationForm,
+             extra_context=
+             {
+                 'title': 'Вход',
+                 'year' : datetime.now().year,
+             }
+         ),
+         name='login'),
+    path('logout', LogoutView.as_view(next_page=''), name='logout'),
     path('registration', registration, name='registration')
 ]
