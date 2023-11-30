@@ -35,10 +35,10 @@ urlpatterns = [
     path('about',views.about_page, name="about_page"),
     path('phones',phones_page),
     path('contacts', anketa),
-    path('login',
+    path('login/',
          LoginView.as_view
          (
-             template_name='App/login.html',
+             template_name='login.html',
              authentication_form=forms.BootstrapAuthenticationForm,
              extra_context=
              {
@@ -47,6 +47,6 @@ urlpatterns = [
              }
          ),
          name='login'),
-    path('logout', LogoutView.as_view(next_page=''), name='logout'),
+    path('logout/', LogoutView.as_view(next_page=''), name='logout'),
     path('registration', registration, name='registration')
 ]
