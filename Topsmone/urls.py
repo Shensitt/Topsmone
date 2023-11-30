@@ -19,7 +19,9 @@ Including another URLconf
 # Uncomment next two lines to enable admin:
 from os import name
 from re import T
+from django.conf.urls import include
 from django.contrib import admin
+from django.contrib.auth import login
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
 from App import forms, views
@@ -35,18 +37,7 @@ urlpatterns = [
     path('about',views.about_page, name="about_page"),
     path('phones',phones_page),
     path('contacts', anketa),
-    path('login/',
-         LoginView.as_view
-         (
-             template_name='login.html',
-             authentication_form=forms.BootstrapAuthenticationForm,
-             extra_context=
-             {
-                 'title': 'Вход',
-                 'year' : datetime.now().year,
-             }
-         ),
-         name='login'),
-    path('logout/', LogoutView.as_view(next_page=''), name='logout'),
-    path('registration', registration, name='registration')
+    path('registration', registration, name='registration'),
+    path("accounts/", include("django.contrib.auth.urls")),  # new
+
 ]

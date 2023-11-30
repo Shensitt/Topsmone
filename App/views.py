@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
+
 def index_page(request):
     return render(request, 'links.html')
 

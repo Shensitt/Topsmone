@@ -74,8 +74,6 @@
     <Content Include="App\templates\App\contacts.html" />
     <Content Include="App\templates\App\index.html" />
     <Content Include="App\templates\App\links.html" />
-    <Content Include="App\templates\App\login.html" />
-    <Content Include="App\templates\App\loginpartial.html" />
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="App\templates\App\phones.html" />
     <Content Include="App\templates\App\registration.html" />
