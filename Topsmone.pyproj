@@ -71,6 +71,7 @@
     <Content Include="App\static\styles\bootstrap.css" />
     <Content Include="App\static\styles\site.css" />
     <Content Include="App\templates\App\about.html" />
+    <Content Include="App\templates\App\blog.html" />
     <Content Include="App\templates\App\contacts.html" />
     <Content Include="App\templates\App\index.html" />
     <Content Include="App\templates\App\links.html" />

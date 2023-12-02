@@ -3,6 +3,8 @@ from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from .forms import ContactForm 
 from django.contrib.auth.forms import UserCreationForm
+from django.db import models
+from .models import Blog
 
 # Create your views here.
 
@@ -76,4 +78,17 @@ def registration(request):
         }
     )
             
+def blog(request):
+    posts=Blog.objects.all()
+    
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'blog.html',
+        {
+            'title':'Блог',
+            'posts':posts,
+            'year':datetime.now().year
+        }
+    )
             

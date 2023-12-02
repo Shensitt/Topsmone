@@ -38,6 +38,6 @@ urlpatterns = [
     path('phones',phones_page),
     path('contacts', anketa),
     path('registration', registration, name='registration'),
-    path("accounts/", include("django.contrib.auth.urls")),  # new
-
+    #path("accounts/", include("django.contrib.auth.urls")), 
+    path('blog', views.blog, name='blog')
 ]
