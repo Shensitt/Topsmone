@@ -1,4 +1,3 @@
-from functools import _Descriptor
 from msilib.schema import Verb
 from django.db import models
 from django.contrib import admin
@@ -6,7 +5,7 @@ from datetime import datetime
 from django.urls import reverse
 
 class Blog(models.Model):
-    title = models.CharField(msx_length=100, unique_for_date="posted", verbose_name="Заголовок")
+    title = models.CharField(max_length=100, unique_for_date="posted", verbose_name="Заголовок")
     description = models.TextField(verbose_name="Краткое содержание")
     content = models.TextField(verbose_name="Полное содержание")
     posted = models.DateTimeField(default=datetime.now(), db_index=True, verbose_name="Опубликована")
