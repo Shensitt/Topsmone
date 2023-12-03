@@ -15,6 +15,9 @@ from .forms import CommentForm # использование формы ввод�
 def index_page(request):
     return render(request, 'links.html')
 
+def videopost(request):
+    return render(request, 'videopost.html')
+
 def about_page(request):
      return render(request, 'about.html')
 
@@ -123,7 +126,7 @@ def blogpost(request, parametr):
             
 def newpost(request):
     assert isinstance(request,HttpRequest)
-    if request.methos=="POST":
+    if request.method=="POST":
         blogform=BlogForm(request.POST, request.FILES)
         if blogform.is_valid():
             blog_f=blogform_save(commit=False)
