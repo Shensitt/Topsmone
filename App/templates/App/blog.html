@@ -2,11 +2,11 @@
 
 {% block navbarOnAbout %}
 
-<h2>Статьи блога</h2>
-<br />
+<h2 style="padding-top:50px; text-align:center">Статьи блога</h2>
+
 {% for post in posts %}
 <hr />
-<div class="">
+<div style="padding-left:50px; padding-right:50px;">
     <h2>{{post.title}}</h2>
     <h4>{{post.posted}}</h4>
     <p>{{post.description}}</p>
