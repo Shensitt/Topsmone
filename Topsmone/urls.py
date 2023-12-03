@@ -22,6 +22,7 @@ from re import T
 from django.conf.urls import include
 from django.contrib import admin
 from django.contrib.auth import login
+from django.contrib.auth.forms import AuthenticationForm
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
 from App import forms, views
@@ -44,7 +45,20 @@ urlpatterns = [
     path('blog', views.blog, name='blog'),
     path('newpost', views.newpost, name='newpost'),
     path('videopost', views.videopost, name='videopost'),
-    path('blogpost/<int:parametr>',views.blogpost, name='blogpost')
+    path('blogpost/<int:parametr>',views.blogpost, name='blogpost'),
+    path('login', 
+         LoginView.as_view
+         (
+             template_name='login.html',
+             authentication_form=AuthenticationForm,
+             # extra_content=
+             # {
+             #     'title':'Войти',
+             #     'year':datetime.now().year,
+             # }
+         ),
+         name='login'
+    )
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
