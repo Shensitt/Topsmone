@@ -13,10 +13,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item navbar-item">
+                    <a class="nav-link active" aria-current="page" href="phones">Смартфоны</a>
+                </li>
+                <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="blog">Блог</a>
                 </li>
                 <li class="nav-item navbar-item">
-                    <a class="nav-link active" aria-current="page" href="phones">Смартфоны</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'videopost' %}">Видео</a>
                 </li>
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="about">О нас</a>
@@ -30,6 +33,13 @@
                     <a class="nav-link active" aria-current="page" href="registration">Регистрация</a>
                 </li>
                 {% endif %}
+
+                {% if user.is_superuser %}
+                <li class="nav-item navbar-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'newpost' %}">Добавить статью</a>
+                </li>
+                {% ebdif %}
+
 
 
             </ul>

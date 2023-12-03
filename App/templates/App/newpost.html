@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block navbarOnAbout %}
+
+<h3>
+    Добавиьт статью
+</h3>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        {{blogform.as_p}}
+        <button type="submit" class="save btn btn-default">
+            Сохранить статью
+        </button>
+    </div>
+</form>
+
+{% endblock navbarOnAbout %}

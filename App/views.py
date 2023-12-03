@@ -1,7 +1,8 @@
-﻿from datetime import datetime
+﻿from datetime import date, datetime
+import http
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
-from .forms import ContactForm 
+from .forms import BlogForm, ContactForm 
 from django.contrib.auth.forms import UserCreationForm
 from django.db import models
 from .models import Blog
@@ -120,3 +121,27 @@ def blogpost(request, parametr):
         }
     )
             
+def newpost(request):
+    assert isinstance(request,HttpRequest)
+    if request.methos=="POST":
+        blogform=BlogForm(request.POST, request.FILES)
+        if blogform.is_valid():
+            blog_f=blogform_save(commit=False)
+            blog_f.posted=datetime.now()
+            blog_f.autor = request.user
+            blog_f.save()
+            
+            return redirect('blog')
+        
+    else:
+        blogform=BlogForm()
+    
+    return render(
+        request,
+        'newpost.html',
+        {
+            'blogform':blogform,
+            'title':'Добавить статью блога',
+            'year':datetime.now().year
+        }
+    )

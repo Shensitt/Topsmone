@@ -3,7 +3,7 @@ from django.db import models
 from .models import Comment
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
-
+from .models import Blog
 
 class ContactForm(forms.Form):
     name = forms.CharField(label="Ваше имя", min_length = 2, max_length = 100)
@@ -32,3 +32,9 @@ class CommentForm (forms.ModelForm):
         model = Comment # используемая модель
         fields = ('text',) # требуется заполнить только поле text
         labels = {'text': "Комментарий"} # метка к полю формы text
+        
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model=Blog
+        fields=('title','description','content','image')
+        labels={'title':'Заголовок','description':'Краткое содержание','content':'Полное содержание','image':'Картинка'}

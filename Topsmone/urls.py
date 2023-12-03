@@ -26,6 +26,9 @@ from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
 from App import forms, views
 from datetime import datetime
+from django.conf.urls.static import static
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 from App.views import anketa, contacts_page, index_page,  about_page, phones_page, registration
@@ -39,5 +42,10 @@ urlpatterns = [
     path('contacts', anketa),
     path('registration', registration, name='registration'),
     path('blog', views.blog, name='blog'),
+    path('newpost', views.newpost, name='newpost'),
+    path('videopost', views.videopost, name='videopost'),
     path('blogpost/<int:parametr>',views.blogpost, name='blogpost')
 ]
+
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns+=staticfiles_urlpatterns()

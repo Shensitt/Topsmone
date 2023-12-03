@@ -78,8 +78,10 @@
     <Content Include="App\templates\App\index.html" />
     <Content Include="App\templates\App\links.html" />
     <Content Include="App\templates\App\navbar.html" />
+    <Content Include="App\templates\App\newpost.html" />
     <Content Include="App\templates\App\phones.html" />
     <Content Include="App\templates\App\registration.html" />
+    <Content Include="App\templates\App\videopost.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
