@@ -4,6 +4,7 @@
     <Name>Topsmone</Name>
     <RootNamespace>Topsmone</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -72,6 +73,7 @@
     <Content Include="App\static\styles\site.css" />
     <Content Include="App\templates\App\about.html" />
     <Content Include="App\templates\App\blog.html" />
+    <Content Include="App\templates\App\blogpost.html" />
     <Content Include="App\templates\App\contacts.html" />
     <Content Include="App\templates\App\index.html" />
     <Content Include="App\templates\App\links.html" />
