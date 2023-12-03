@@ -1,14 +1,14 @@
 {% extends 'index.html' %}
-
+{% load static %}
 {% block navbarOnAbout %}
 
 <h2>{{post_1.title}}</h2>
 
-{% post_1.image and post_1.image.url != 'media/temp.lpg' %}
+{% if post_1.image and post_1.image.url != 'media/temp.lpg' %}
 <img src="{% static 'Images/Links/link2.jpg' %}" alt="Кртинка статьи блога" width="200" />
 {% endif %}
 
-<p>P{{post_1.content|linebreaksbr}}</p>
+<p>{{post_1.content|linebreaksbr}}</p>
 <p>
     <a href="{% url 'blog' %}">
         Назад
