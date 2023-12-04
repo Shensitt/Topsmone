@@ -129,7 +129,7 @@ def newpost(request):
     if request.method=="POST":
         blogform=BlogForm(request.POST, request.FILES)
         if blogform.is_valid():
-            blog_f=blogform_save(commit=False)
+            blog_f=blogform.save(commit=False)
             blog_f.posted=datetime.now()
             blog_f.autor = request.user
             blog_f.save()
