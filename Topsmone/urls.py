@@ -42,23 +42,24 @@ urlpatterns = [
     path('phones',phones_page),
     path('contacts', anketa),
     path('registration', registration, name='registration'),
+    # path('login/registration', registration, name='registration'),
     path('blog', views.blog, name='blog'),
     path('newpost', views.newpost, name='newpost'),
     path('videopost', views.videopost, name='videopost'),
     path('blogpost/<int:parametr>',views.blogpost, name='blogpost'),
-    path('login', 
+    path('login',
          LoginView.as_view
          (
              template_name='login.html',
-             authentication_form=AuthenticationForm,
-             # extra_content=
-             # {
-             #     'title':'Войти',
-             #     'year':datetime.now().year,
-             # }
+             authentication_form=forms.BootstrapAuthenticationForm,
+             extra_context=
+             {
+                 'title': 'Вход',
+                 'year' : datetime.now().year,
+             }
          ),
-         name='login'
-    )
+         name='login'),
+    path('logout', LogoutView.as_view(next_page='/'), name='logout')
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

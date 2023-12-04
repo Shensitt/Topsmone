@@ -1,19 +1,58 @@
-<div class="dropdown-menu">
-    <form class="px-4 py-3">
-        <div class="mb-3">
-            <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-        </div>
-        <div class="mb-3">
-            <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-        </div>
-        <div class="mb-3">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
-    
+{% extends "index.html" %}
+
+{% block navbarOnAbout %}
+
+<h2>Войти</h2>
+<div class="row">
+        <section id="loginForm">
+            <form action="." method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h4 style="padding-left:50px">Используйте аккаунт Topsmone для входа в личный кабинет.</h4>
+                <hr />
+                <div class="form-group" >
+                    <label style="padding-left:50px" for="id_username" class="col-md-2 control-label">Имя пользователя</label>
+                    <div style="padding-left:50px" class="col-md-10">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="form-group" style="padding-top:25px">
+                    <label style="padding-left:50px" for="id_password" class="col-md-2 control-label">Пароль</label>
+                    <div style="padding-left:50px" class="col-md-10">
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="form-group" style="padding-top:25px">
+                    <div style="padding-left:50px" class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Войти" id="send">
+                        <script>
+                            function b_color_in() {
+                                $('#send').css('background-color', '#DBDFEA');
+                                $('#send').css('color', 'Black');
+                            }
+                            function b_color_out() {
+                                $('#send').css('background-color', '');
+                                $('#send').css('color', '');
+                            }
+                            $('#send').mouseover(b_color_in);
+                            $('#send').mouseout(b_color_out);
+                        </script>
+                    </div>
+                </div>
+                {% if form.errors %}
+                <p style="padding-left:50px" class="validation-summary-errors">Пожалуйста введите корректное имя пользователя и пароль.</p>
+                {% endif %}
+            </form>
+        </section>
+        <section id="socialLoginForm"></section>
 </div>
+
+{% endblock navbarOnAbout %}
+
+
+{% block scripts %}
+
+    {% load static %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}
