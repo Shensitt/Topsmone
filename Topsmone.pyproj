@@ -74,6 +74,8 @@
     <None Include="App\static\scripts\_references.js" />
     <Content Include="App\static\styles\bootstrap.css" />
     <Content Include="App\static\styles\site.css" />
+    <Content Include="App\static\Video\iphone.png" />
+    <Content Include="App\static\Video\sony.png" />
     <Content Include="App\templates\App\about.html" />
     <Content Include="App\templates\App\blog.html" />
     <Content Include="App\templates\App\blogpost.html" />
@@ -85,6 +87,8 @@
     <Content Include="App\templates\App\media\huaweinova12ultra.jpg" />
     <Content Include="App\templates\App\media\oppo.jpg" />
     <Content Include="App\templates\App\media\pixel6a.jpeg" />
+    <Content Include="App\static\Video\This is SONY Xperia 1iii! #shorts.mp4" />
+    <Content Include="App\static\Video\Загадка цен на айфоны.mp4" />
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="App\templates\App\newpost.html" />
     <Content Include="App\templates\App\phones.html" />
@@ -97,6 +101,7 @@
     <Folder Include="App\migrations\" />
     <Folder Include="App\static\" />
     <Folder Include="App\static\Images\Links\" />
+    <Folder Include="App\static\Video\" />
     <Folder Include="App\static\scripts\" />
     <Folder Include="App\static\styles\" />
     <Folder Include="App\templates\" />

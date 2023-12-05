@@ -1,20 +1,23 @@
 {% extends 'index.html' %}
 
 {% block navbarOnAbout %}
+{% load static %}
 
 <h1 style="padding-top:50px; text-align:center">Видео</h1>
 <hr />
 <div>
     <h2 style="padding-left:50px;">
-        Видео-ролик
+        Sony Xperia 1iii
     </h2>
-    <video src="/media/12.mp4" style="padding-left:50px;" controls=" controls" width="400" height="300" poster="/media/poster1.jpg"></video>
+    <video src="{% static 'Video/This is SONY Xperia 1iii! #shorts.mp4' %}" style="padding-left:50px;" controls="controls" width="400" height="300" poster="{% static 'Video/sony.png' %}"></video>
 </div>
 <hr />
 <div>
     <h2 style="padding-left:50px;">
-        Видео-ролик 2
+        Цены на айфоны поднимаются
     </h2>
-    <video src="/media/12.mp4" style="padding-left:50px;" controls=" controls" width="400" height="300" poster="/media/poster1.jpg"></video>
+    <video src="{% static 'Video/Загадка цен на айфоны.mp4' %}" style="padding-left:50px;" controls="controls" width="400" height="300" poster="{% static 'Video/iphone.png' %}"></video>
 </div>
 {% endblock navbarOnAbout %}
+
+
