@@ -50,7 +50,7 @@ def anketa(request):
         form=ContactForm()
     return render(
         request,
-        'app/contacts.html',
+        'contacts.html',
         {
             'form':form,
             'data':data
@@ -77,7 +77,7 @@ def registration(request):
     assert isinstance(request,HttpRequest)
     return render(
         request,
-        'app/registration.html',
+        'registration.html',
         {
             'regform':regform,
             'year':datetime.now().year
