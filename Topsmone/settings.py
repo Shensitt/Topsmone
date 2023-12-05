@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import posixpath
 
+from django.forms import Media
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -117,5 +119,5 @@ STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL='/media/'
 
-STATIC_URL = '/media/'
-STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['templates'] + ['App'] + ['media']))
+MEDIA_URL = '/media/'
+MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['templates'] + ['App'] + ['media']))
