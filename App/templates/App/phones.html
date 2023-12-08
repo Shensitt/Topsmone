@@ -1,9 +1,36 @@
 {% extends 'index.html' %}
 
 {% block navbarOnAbout %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/site.css' %}">
 
+<h2 style="padding-top:50px; text-align:center">Смартфоны</h2>
+
+<div class="row">
+    {% for post in posts %}
+    <div  class="col-3" style="padding-left:50px;padding-top:50px; padding-right:50px;">
+        <table>
+            <thead>
+                {{post.title}}
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        {% if post.image and post.image.url != 'media/temp.lpg' %}
+                        <img style="display:block; margin-left:auto; margin-right:auto" src="{{ post.image.url }}" alt="Кртинка статьи блога" width="250" />
+                        {% endif %}
+                        <h4>{{post.posted}}</h4>
+                        <p>{{post.description}}</p>
+                        <p>
+                            <a href="{% url 'phone' parametr=post.id %}">
+                                Читать далее
+                            </a>
+                        </p>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% endfor %}
+
+</div>
 
 {% endblock navbarOnAbout %}

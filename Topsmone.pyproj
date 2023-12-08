@@ -101,6 +101,8 @@
     <Content Include="App\static\Video\Загадка цен на айфоны.mp4" />
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="App\templates\App\newpost.html" />
+    <Content Include="App\templates\App\newproduct.html" />
+    <Content Include="App\templates\App\phone.html" />
     <Content Include="App\templates\App\phones.html" />
     <Content Include="App\templates\App\registration.html" />
     <Content Include="App\templates\App\videopost.html" />

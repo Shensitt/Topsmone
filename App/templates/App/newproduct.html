@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block navbarOnAbout %}
+
+<h3>
+    Добавить товар
+</h3>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        {{productform.as_p}}
+        <button type="submit" class="save btn btn-default">
+            Сохранить товар
+        </button>
+    </div>
+</form>
+
+{% endblock navbarOnAbout %}

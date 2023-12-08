@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block navbarOnAbout %}
+
+<h2 style="padding-top:50px; text-align:center">{{post_1.title}}</h2>
+
+{% if post_1.image and post_1.image.url != 'media/temp.lpg' %}
+<img style="display:block; margin-left:auto; margin-right:auto" src="{{ post_1.image.url }}" alt="Кртинка статьи блога" width="500" />
+{% endif %}
+
+<p style="padding-left:50px">{{post_1.content|linebreaksbr}}</p>
+<p>
+    <a style="padding-left:50px" href="{% url 'blog' %}">
+        Назад
+    </a>
+</p>
+{% if user.is_authenticated %}
+
+<h3 style="padding-left:50px">Добавить комментарий</h3>
+
+<form style="padding-left:50px" method="POST">
+    {% csrf_token %} {# защита от атак CSRF#}
+    <div>
+        {{form.as_p}}
+        <button type="submit" class="save btn btn-default"> Отправить комментарий </button>
+    </div>
+</form>
+
+{% else %}
+
+<h3 style="padding-left:50px"> Для добавления своего комментария, пожалуйста, авторизуйтесь </h3>
+
+{% endif %}
+
+{% for comment in comments %}
+
+<hr />
+<h7 style="padding-left:50px"> {{comment.date}} </h7>
+<h5 style="padding-left:50px"> {{comment.author}} </h5>
+<p style="padding-left:50px"> {{comment.text|linebreaksbr}} </p>
+
+{% endfor %}
+{% endblock navbarOnAbout %}

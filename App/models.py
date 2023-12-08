@@ -42,3 +42,26 @@ class Comment(models.Model):
         verbose_name = "Комментарии к статье блога"
         verbose_name_plural = "Комментарии к статьям блога"
 admin.site.register(Comment)
+
+class Phone(models.Model):
+    title = models.CharField(max_length=100, unique_for_date="posted", verbose_name="Заголовок")
+    description = models.TextField(verbose_name="Краткое содержание")
+    content = models.TextField(verbose_name="Полное содержание")
+    posted = models.DateTimeField(default=datetime.now(), db_index=True, verbose_name="Опубликована")
+    author = models.ForeignKey(User, null=True, blank=True, on_delete = models.SET_NULL, verbose_name = "Автор")
+    image = models.FileField(default='temp.jpg',verbose_name='Путь к картинке')
+    category = models.CharField(max_length=100, verbose_name="Категория")
+
+    def get_absolute_url(self):
+        return reverse("phone",args=[str(self.id)])
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        db_table = "Phones"
+        ordering=["-posted"]
+        verbose_name = "Смартфон"
+        verbose_name_plural = "Смартфоны"
+        
+admin.site.register(Phone)

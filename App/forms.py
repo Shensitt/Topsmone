@@ -1,6 +1,6 @@
 ﻿from django import forms
 from django.db import models
-from .models import Comment
+from .models import Comment, Phone
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
 from .models import Blog
@@ -36,5 +36,11 @@ class CommentForm (forms.ModelForm):
 class BlogForm(forms.ModelForm):
     class Meta:
         model=Blog
+        fields=('title','description','content','image')
+        labels={'title':'Заголовок','description':'Краткое содержание','content':'Полное содержание','image':'Картинка'}
+        
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model=Phone
         fields=('title','description','content','image')
         labels={'title':'Заголовок','description':'Краткое содержание','content':'Полное содержание','image':'Картинка'}
