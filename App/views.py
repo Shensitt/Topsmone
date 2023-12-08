@@ -70,7 +70,7 @@ def registration(request):
             
             regform.save()
 
-            return redirect('home')
+            return redirect('/')
     else:
         regform=UserCreationForm()
         
@@ -86,7 +86,6 @@ def registration(request):
             
 def blog(request):
     posts=Blog.objects.all()
-    
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -97,6 +96,7 @@ def blog(request):
             'year':datetime.now().year
         }
     )
+
 
 def blogpost(request, parametr):
     assert isinstance(request, HttpRequest)
