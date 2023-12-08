@@ -12,8 +12,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item navbar-item">
-                    <a class="nav-link active" aria-current="page" href="phones">Смартфоны</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+                    </ul>
                 </li>
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="blog">Блог</a>
@@ -32,9 +41,9 @@
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="registration">Регистрация</a>
                 </li>
-               <!--  <li class="nav-item navbar-item">
-                    <a class="nav-link active" aria-current="page" href="login">Вход</a>
-                </li> -->
+                <!--  <li class="nav-item navbar-item">
+        <a class="nav-link active" aria-current="page" href="login">Вход</a>
+    </li> -->
                 {% endif %}
 
                 {% if user.is_superuser %}
@@ -51,3 +60,6 @@
 </nav>
  {% block scripts %}{% endblock %}
 <script src="{% static 'scripts/bootstrap.js' %}"></script>
+<script src="{% static 'scripts/jquery-1.10.2.min.js' %}"></script>
+<script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+<script src="{% static 'scripts/bootstrap.bundle.min.js' %}"></script>
