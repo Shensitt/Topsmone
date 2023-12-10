@@ -102,10 +102,12 @@
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="App\templates\App\newpost.html" />
     <Content Include="App\templates\App\newproduct.html" />
+    <Content Include="App\templates\App\orders.html" />
     <Content Include="App\templates\App\phone.html" />
     <Content Include="App\templates\App\phones.html" />
     <Content Include="App\templates\App\registration.html" />
     <Content Include="App\templates\App\videopost.html" />
+    <Content Include="App\templates\App\shoppingcart.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -46,6 +46,8 @@ urlpatterns = [
     path('contacts', anketa),
     path('registration', registration, name='registration'),
     path('blog', views.blog, name='blog'),
+    path('orders', views.orders, name='orders'),
+    path('shoppingcart', views.shoppingcart, name='shoppingcart'),
     path('newpost', views.newpost, name='newpost'),
     path('newproduct', views.newproduct, name='newproduct'),
     path('videopost', views.videopost, name='videopost'),

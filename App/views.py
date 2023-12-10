@@ -1,14 +1,18 @@
 ﻿from datetime import date, datetime
 import http
+from telnetlib import AUTHENTICATION
 from unicodedata import category
+from django.contrib.auth import get_user
+from django.contrib.auth.models import User
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from .forms import BlogForm, ContactForm, ProductForm 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserModel
 from django.db import models
-from .models import Blog, Phone
+from .models import Blog, Orders, Phone, ShoppingCart, Orders
 from .models import Comment # использование модели комментариев
 from .forms import CommentForm # использование формы ввода комментария
+from django.contrib.sessions.models import Session
 
 # Create your views here.
 
@@ -93,6 +97,32 @@ def blog(request):
         'blog.html',
         {
             'title':'Блог',
+            'posts':posts,
+            'year':datetime.now().year
+        }
+    )
+
+def shoppingcart(request):
+    posts=ShoppingCart.objects.filter(author=get_user(request))
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'shoppingcart.html',
+        {
+            'title':'Корзина',
+            'posts':posts,
+            'year':datetime.now().year
+        }
+    )
+
+def orders(request):
+    posts=Orders.objects.filter(author=get_user(request))
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'orders.html',
+        {
+            'title':'Заказы',
             'posts':posts,
             'year':datetime.now().year
         }
