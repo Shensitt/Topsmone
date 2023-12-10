@@ -128,6 +128,19 @@ def orders(request):
         }
     )
 
+def ordersmanager(request):
+    posts=Orders.objects.all()
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'orders.html',
+        {
+            'title':'Заказы',
+            'posts':posts,
+            'year':datetime.now().year
+        }
+    )
+
 def phones(request):
     posts=Phone.objects.all()
     assert isinstance(request, HttpRequest)

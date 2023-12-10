@@ -47,6 +47,7 @@ urlpatterns = [
     path('registration', registration, name='registration'),
     path('blog', views.blog, name='blog'),
     path('orders', views.orders, name='orders'),
+    path('ordersmanager', views.ordersmanager, name='ordersmanager'),
     path('shoppingcart', views.shoppingcart, name='shoppingcart'),
     path('newpost', views.newpost, name='newpost'),
     path('newproduct', views.newproduct, name='newproduct'),

@@ -14,6 +14,22 @@
         Назад
     </a>
 </p>
+<!-- <p style="padding-left:50px">
+    <input type="submit" value="Добавить в корзину" id="send">
+    <script>
+        function b_color_in() {
+            $('#send').css('background-color', '#DBDFEA');
+            $('#send').css('color', 'Black');
+        }
+        function b_color_out() {
+            $('#send').css('background-color', '');
+            $('#send').css('color', '');
+        }
+        $('#send').mouseover(b_color_in);
+        $('#send').mouseout(b_color_out);
+    </script>
+</p> -->
+
 {% if user.is_authenticated %}
 
 <h3 style="padding-left:50px">Добавить комментарий</h3>
@@ -28,6 +44,7 @@
 
 {% else %}
 
+<h3 style="padding-left:50px"> Для добавления товара в корзину, пожалуйста, авторизуйтесь </h3>
 <h3 style="padding-left:50px"> Для добавления своего комментария, пожалуйста, авторизуйтесь </h3>
 
 {% endif %}

@@ -42,6 +42,9 @@
                 <li class="nav-item navbar-item ">
                     <a class="nav-link active" aria-current="page" href="{% url 'newproduct' %}">Добавить товар</a>
                 </li>
+                <li class="nav-item navbar-item">
+                    <a class="nav-link active" aria-current="page" href="ordersmanager">Заказы</a>
+                </li>
                 {% else %}
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="contacts">Обратная связь</a>
@@ -56,15 +59,12 @@
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="registration">Регистрация</a>
                 </li>
-                {% else %}
-                <li class="nav-item navbar-item">
-                    <a class="nav-link active" aria-current="page" href="orders">Заказы</a>
-                </li>
-                {% endif %}
-
-                {% if not user.is_superuser or user.is_staff %}
+                {% elif not user.is_superuser or not user.is_staff%}
                 <li class="nav-item navbar-item">
                     <a class="nav-link active" aria-current="page" href="shoppingcart">Корзина</a>
+                </li>
+                <li class="nav-item navbar-item">
+                    <a class="nav-link active" aria-current="page" href="orders">Заказы</a>
                 </li>
                 {% endif %}
 
