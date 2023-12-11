@@ -132,6 +132,27 @@ def add_to_shoppingcart(request):
     assert isinstance(request, HttpRequest)
     return redirect(reverse('phones'))
 
+def plus_to_shoppingcart(request):
+    product = Phone.objects.filter(title = request.GET.get('post'))
+    posts = ShoppingCart.objects.get(author=get_user(request), title= product.get().title)
+    posts.quantity +=1
+    posts.save()
+    
+    assert isinstance(request, HttpRequest)
+    return redirect(reverse('shoppingcart'))
+
+def minus_to_shoppingcart(request):
+    product = Phone.objects.filter(title = request.GET.get('post'))
+    posts = ShoppingCart.objects.get(author=get_user(request), title= product.get().title)
+    if posts.quantity ==1:
+        posts.delete()
+    else:
+        posts.quantity -=1
+        posts.save()
+    
+    assert isinstance(request, HttpRequest)
+    return redirect(reverse('shoppingcart'))
+
 def delete_from_shoppingcart(request):
     product = ShoppingCart.objects.filter(id = request.GET.get('post'))
     product.delete()

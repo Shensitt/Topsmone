@@ -16,12 +16,15 @@
         </div> 
         <div class=" col-md-4">
             <h2 style="text-align:end">
-                +
+                <a style="padding-left:50px" href="{% url 'plus_to_shoppingcart' %}?post={{ post.title }}">
+                    +                
+                </a>
             </h2>
             <h2 style="text-align:end">Количество: {{post.quantity}}</h2>
-
             <h2 style="text-align:end">
-                -
+                <a style="padding-left:50px" href="{% url 'minus_to_shoppingcart' %}?post={{ post.title }}">
+                    -
+                </a>
             </h2>
         </div> 
         <div class=" col-md-4">
