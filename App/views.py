@@ -113,7 +113,6 @@ def shoppingcart(request):
         request,
         'shoppingcart.html',
         {
-            #'quantity' :posts.get().quantity,
             'title':'Корзина',
             'posts':posts,
             'year':datetime.now().year
@@ -132,6 +131,13 @@ def add_to_shoppingcart(request):
          
     assert isinstance(request, HttpRequest)
     return redirect(reverse('phones'))
+
+def delete_from_shoppingcart(request):
+    product = ShoppingCart.objects.filter(id = request.GET.get('post'))
+    product.delete()
+   
+    assert isinstance(request, HttpRequest)
+    return redirect(reverse('shoppingcart'))
 
 def orders(request):
     posts=Orders.objects.filter(author=get_user(request))
