@@ -1,4 +1,5 @@
-﻿from datetime import date, datetime
+﻿from django.urls import reverse
+from datetime import date, datetime
 import http
 from telnetlib import AUTHENTICATION
 from unicodedata import category
@@ -114,6 +115,12 @@ def shoppingcart(request):
             'year':datetime.now().year
         }
     )
+
+def add_to_shoppingcart(request):
+    product = Phone.objects.filter(id = request.GET.get('post'))
+    posts, created = ShoppingCart.objects.get_or_create(author=get_user(request))
+    assert isinstance(request, HttpRequest)
+    return redirect(reverse('phones'))
 
 def orders(request):
     posts=Orders.objects.filter(author=get_user(request))
@@ -235,6 +242,7 @@ def phone(request, parametr):
             return redirect('phone', parametr=post_1.id) # переадресация на ту же страницу статьи после отправки комментария   
     else:
         form = CommentForm() # создание формы для ввода комментария
+
     return render(
         request,
         'phone.html',

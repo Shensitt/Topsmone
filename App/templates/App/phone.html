@@ -5,7 +5,7 @@
 <h2 style="padding-top:50px; text-align:center">{{post_1.title}}</h2>
 
 {% if post_1.image and post_1.image.url != 'media/temp.lpg' %}
-<img style="display:block; margin-left:auto; margin-right:auto" src="{{ post_1.image.url }}" alt="Кртинка статьи блога" width="500" />
+<img style="display:block; margin-left:auto; margin-right:auto" src="{{ post_1.image.url }}" alt="Картинка статьи блога" width="500" />
 {% endif %}
 
 <p style="padding-left:50px">{{post_1.content|linebreaksbr}}</p>
@@ -14,21 +14,12 @@
         Назад
     </a>
 </p>
-<!-- <p style="padding-left:50px">
-    <input type="submit" value="Добавить в корзину" id="send">
-    <script>
-        function b_color_in() {
-            $('#send').css('background-color', '#DBDFEA');
-            $('#send').css('color', 'Black');
-        }
-        function b_color_out() {
-            $('#send').css('background-color', '');
-            $('#send').css('color', '');
-        }
-        $('#send').mouseover(b_color_in);
-        $('#send').mouseout(b_color_out);
-    </script>
-</p> -->
+<p>
+    <a style="padding-left:50px" href="{% url 'add_to_shoppingcart' %}?post={{ post_1.id }}">
+        Добавить в корзину
+    </a>
+</p>
+
 
 {% if user.is_authenticated %}
 
