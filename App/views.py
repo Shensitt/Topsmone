@@ -1,4 +1,7 @@
-﻿from django.urls import reverse
+﻿from email.policy import default
+from statistics import quantiles
+from turtle import title
+from django.urls import reverse
 from datetime import date, datetime
 import http
 from telnetlib import AUTHENTICATION
@@ -110,6 +113,7 @@ def shoppingcart(request):
         request,
         'shoppingcart.html',
         {
+            #'quantity' :posts.get().quantity,
             'title':'Корзина',
             'posts':posts,
             'year':datetime.now().year
@@ -118,7 +122,14 @@ def shoppingcart(request):
 
 def add_to_shoppingcart(request):
     product = Phone.objects.filter(id = request.GET.get('post'))
-    posts, created = ShoppingCart.objects.get_or_create(author=get_user(request))
+    cart_prod=ShoppingCart.objects.filter(author=get_user(request))
+    if ShoppingCart.objects.filter(author=get_user(request), title= product.get().title).count() > 0:
+         posts = ShoppingCart.objects.get(author=get_user(request), title= product.get().title)
+         posts.quantity +=1
+         posts.save()
+    else:
+         posts = ShoppingCart.objects.get(author=get_user(request), title= product.get().title, quantity=1)
+         
     assert isinstance(request, HttpRequest)
     return redirect(reverse('phones'))
 
