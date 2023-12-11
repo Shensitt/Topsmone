@@ -128,7 +128,7 @@ def add_to_shoppingcart(request):
          posts.quantity +=1
          posts.save()
     else:
-         posts = ShoppingCart.objects.get(author=get_user(request), title= product.get().title, quantity=1)
+         posts = ShoppingCart.objects.get_or_create(author=get_user(request), title= product.get().title, quantity=1, image = product.get().image)
          
     assert isinstance(request, HttpRequest)
     return redirect(reverse('phones'))

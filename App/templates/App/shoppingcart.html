@@ -8,14 +8,22 @@
 <hr />
 <div style="padding-left:50px; padding-right:50px;">
     <h2>{{post.title}}</h2>
-    <h2>{{post.quantity}}</h2>
-    <h4>{{post.posted}}</h4>
-    <p>{{post.description}}</p>
-    <p>
-        <a href="{% url 'blogpost' parametr=post.id %}">
-            Читать далее
-        </a>
-    </p>
+    <div class="row">
+        <div class=" col-md-4">
+            {% if post.image and post.image.url != 'media/temp.lpg' %}
+            <img style="display:block; align-content:center;" src="{{ post.image.url }}" alt="Картинка смартфона" width="200" />
+            {% endif %}
+        </div> 
+        <div class=" col-md-4">
+            <h2 style="align-content:center;">Количество: {{post.quantity}}</h2>
+
+        </div> 
+        <div class=" col-md-4">
+            <p style="align-content:center;">
+                Удалить
+            </p>
+        </div>
+    </div>    
 </div>
 {% endfor %}
 {% endblock navbarOnAbout %}

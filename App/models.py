@@ -86,8 +86,8 @@ class ShoppingCart(models.Model):
     class Meta:
         db_table = "ShoppingCart"
         ordering=["-posted"]
-        verbose_name = "Смартфон"
-        verbose_name_plural = "Смартфоны"
+        verbose_name = "Корзина"
+        verbose_name_plural = "Товары Корзины"
         
 admin.site.register(ShoppingCart)
 
@@ -109,7 +109,7 @@ class Orders(models.Model):
     class Meta:
         db_table = "Order"
         ordering=["-posted"]
-        verbose_name = "Смартфон"
-        verbose_name_plural = "Смартфоны"
+        verbose_name = "Заказ"
+        verbose_name_plural = "Заказы"
         
 admin.site.register(Orders)
