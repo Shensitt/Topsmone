@@ -186,6 +186,16 @@ def ordersmanager(request):
         }
     )
 
+def create_order(request):
+    posts=Orders.objects.filter(author=get_user(request))
+    order = Orders.objects.create(author=get_user(request))
+    for cartitem in ShoppingCart.objects.filter(author=get_user(request)):
+        order.content += cartitem.title+ "     x"+cartitem.quantity.__str__()+";\n"
+        order.save()
+    assert isinstance(request, HttpRequest)
+    return redirect(reverse('orders'))
+
+
 def phones(request):
     posts=Phone.objects.all()
     assert isinstance(request, HttpRequest)
