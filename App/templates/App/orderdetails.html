@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block navbarOnAbout %}
+
+<h2 style="padding-top:50px; text-align:center">Заказ #{{post.id}} от {{post.posted}}</h2>
+
+<div style="padding-left:50px; padding-right:50px;">
+    <h2>Товары в заказе:</h2>
+    <h2>{{post.content}}</h2>
+</div>
+
+{% endblock navbarOnAbout %}

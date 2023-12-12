@@ -125,9 +125,10 @@ def add_to_shoppingcart(request):
     if ShoppingCart.objects.filter(author=get_user(request), title= product.get().title).count() > 0:
          posts = ShoppingCart.objects.get(author=get_user(request), title= product.get().title)
          posts.quantity +=1
+         posts.summa += product.get().summa
          posts.save()
     else:
-         posts = ShoppingCart.objects.get_or_create(author=get_user(request), title= product.get().title, quantity=1, image = product.get().image)
+         posts = ShoppingCart.objects.get_or_create(author=get_user(request), title= product.get().title, quantity=1, image = product.get().image, summa = product.get().summa)
          
     assert isinstance(request, HttpRequest)
     return redirect(reverse('phones'))
@@ -136,6 +137,7 @@ def plus_to_shoppingcart(request):
     product = Phone.objects.filter(title = request.GET.get('post'))
     posts = ShoppingCart.objects.get(author=get_user(request), title= product.get().title)
     posts.quantity +=1
+    posts.summa+= product.get().summa
     posts.save()
     
     assert isinstance(request, HttpRequest)
@@ -148,6 +150,7 @@ def minus_to_shoppingcart(request):
         posts.delete()
     else:
         posts.quantity -=1
+        posts.summa-= product.get().summa
         posts.save()
     
     assert isinstance(request, HttpRequest)
@@ -167,9 +170,23 @@ def orders(request):
         request,
         'orders.html',
         {
+            
             'title':'Заказы',
             'posts':posts,
             'year':datetime.now().year
+        }
+    )
+
+def orderdetails(request):
+    posts=Orders.objects.get(id =request.GET.get('post'))
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'orderdetails.html',
+        {
+            
+            'title':'Заказ #'+str(posts.id)+' от '+str(posts.posted),
+            'post':posts,
         }
     )
 

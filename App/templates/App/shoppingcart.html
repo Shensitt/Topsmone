@@ -9,15 +9,15 @@
 <div style="padding-left:50px; padding-right:50px;">
     <h2>{{post.title}}</h2>
     <div class="row">
-        <div class=" col-md-4">
+        <div class=" col-md-3">
             {% if post.image and post.image.url != 'media/temp.lpg' %}
             <img style="display:block; align-self:center;" src="{{ post.image.url }}" alt="Картинка смартфона" width="200" />
             {% endif %}
-        </div> 
-        <div class=" col-md-4">
+        </div>
+        <div class=" col-md-3">
             <h2 style="text-align:end">
                 <a style="padding-left:50px" href="{% url 'plus_to_shoppingcart' %}?post={{ post.title }}">
-                    +                
+                    +
                 </a>
             </h2>
             <h2 style="text-align:end">Количество: {{post.quantity}}</h2>
@@ -26,8 +26,13 @@
                     -
                 </a>
             </h2>
-        </div> 
-        <div class=" col-md-4">
+        </div>
+        <div class=" col-md-3">
+            <h2 style="text-align:end;">
+                    Стоимость: {{post.summa}}
+            </h2>
+        </div>
+        <div class=" col-md-3">
             <h2 style="text-align:end;">
                 <a style="padding-left:50px" href="{% url 'delete_from_shoppingcart' %}?post={{ post.id }}">
                     Удалить из корзины
@@ -38,10 +43,16 @@
 </div>
 {% endfor %}
 
+{% if posts.any %}
 <h2>
     <a style ="padding-left:50px" href="{% url 'create_order' %}">
         Оформить заказ
     </a>
 </h2>
+{% elif posts.count < 1 %}
+<h3 style="padding-left:50px">
+    Корзина пуста, добавьте товары для заказа
+</h3>
+{% endif %}
 
 {% endblock navbarOnAbout %}

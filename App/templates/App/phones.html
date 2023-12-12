@@ -17,13 +17,14 @@
                         {% if post.image and post.image.url != 'media/temp.lpg' %}
                         <img style="display:block; margin-left:auto; margin-right:auto" src="{{ post.image.url }}" alt="Кртинка статьи блога" width="250" />
                         {% endif %}
-                        <h4>{{post.posted}}</h4>
+                        <h4>{{post.summa}}</h4>
                         <p>{{post.description}}</p>
                         <p>
                             <a href="{% url 'phone' parametr=post.id %}">
                                 Читать далее
-                            </a>
+                            </a>                            
                         </p>
+
                     </th>
                 </tr>
             </tbody>

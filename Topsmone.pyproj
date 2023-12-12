@@ -117,6 +117,7 @@
     <Content Include="App\templates\App\navbar.html" />
     <Content Include="App\templates\App\newpost.html" />
     <Content Include="App\templates\App\newproduct.html" />
+    <Content Include="App\templates\App\orderdetails.html" />
     <Content Include="App\templates\App\orders.html" />
     <Content Include="App\templates\App\phone.html" />
     <Content Include="App\templates\App\phones.html" />

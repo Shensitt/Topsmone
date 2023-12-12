@@ -14,15 +14,15 @@
         Назад
     </a>
 </p>
-<p>
-    <a style="padding-left:50px" href="{% url 'add_to_shoppingcart' %}?post={{ post_1.id }}">
-        Добавить в корзину
-    </a>
-</p>
-
 
 {% if user.is_authenticated %}
-
+    {% if not user.is_superuser or not user.is_staff %}
+    <p>
+        <a style="padding-left:50px" href="{% url 'add_to_shoppingcart' %}?post={{ post_1.id }}">
+            Добавить в корзину за {{post_1.summa}}
+        </a>
+    </p>
+    {% endif %}
 <h3 style="padding-left:50px">Добавить комментарий</h3>
 
 <form style="padding-left:50px" method="POST">

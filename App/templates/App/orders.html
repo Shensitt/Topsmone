@@ -7,14 +7,13 @@
 {% for post in posts %}
 <hr />
 <div style="padding-left:50px; padding-right:50px;">
-    <h2>{{post.title}}</h2>
-    <h4>{{post.posted}}</h4>
-    <p>{{post.content}}</p>
-    <!-- <p>
-        <a href="{% url 'blogpost' parametr=post.id %}">
-            Читать далее
+    <h2>#{{post.id}} от {{post.posted}}</h2>
+    <h2>{{post.content}}</h2>
+    <h3>
+        <a style="padding-left:50px" href="{% url 'orderdetails' %}?post={{ post.id }}">
+            Детали заказа
         </a>
-    </p> -->
+    </h3>
 </div>
 {% endfor %}
 {% endblock navbarOnAbout %}

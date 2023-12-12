@@ -51,6 +51,7 @@ class Phone(models.Model):
     author = models.ForeignKey(User, null=True, blank=True, on_delete = models.SET_NULL, verbose_name = "Автор")
     image = models.FileField(default='temp.jpg',verbose_name='Путь к картинке')
     category = models.CharField(max_length=100, verbose_name="Категория")
+    summa = models.DecimalField(verbose_name='Стоимость', max_digits=8, decimal_places=2, default=0)
 
     def get_absolute_url(self):
         return reverse("phone",args=[str(self.id)])
@@ -76,7 +77,8 @@ class ShoppingCart(models.Model):
     image = models.FileField(default='temp.jpg',verbose_name='Путь к картинке')
     category = models.CharField(max_length=100, verbose_name="Категория")
     quantity = models.IntegerField(default=0, verbose_name="Количество")
-    
+    summa = models.DecimalField(verbose_name='Стоимость', max_digits=8, decimal_places=2, default=0)
+
     def get_absolute_url(self):
         return reverse("shoppingcart",args=[str(self.id)])
     
@@ -98,7 +100,7 @@ class Orders(models.Model):
     posted = models.DateTimeField(default=datetime.now(), db_index=True, verbose_name="Опубликована")
     author = models.ForeignKey(User, null=True, blank=True, on_delete = models.SET_NULL, verbose_name = "Автор")
     image = models.FileField(default='temp.jpg',verbose_name='Путь к картинке')
-    category = models.CharField(max_length=100, verbose_name="Категория")
+    summa = models.DecimalField(verbose_name='Стоимость', max_digits=8, decimal_places=2, default=0)
 
     def get_absolute_url(self):
         return reverse("orders",args=[str(self.id)])
