@@ -235,6 +235,7 @@ def ordersmanager(request):
 def create_order(request):
     posts=Orders.objects.filter(author=get_user(request))
     order = Orders.objects.create(author=get_user(request))
+    order.title = order.id
     for cartitem in ShoppingCart.objects.filter(author=get_user(request)):
         order.content += cartitem.title+ "     x"+cartitem.quantity.__str__()+";\n"
         order.summa += cartitem.summa
