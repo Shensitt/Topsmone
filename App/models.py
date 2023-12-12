@@ -101,6 +101,7 @@ class Orders(models.Model):
     author = models.ForeignKey(User, null=True, blank=True, on_delete = models.SET_NULL, verbose_name = "Автор")
     image = models.FileField(default='temp.jpg',verbose_name='Путь к картинке')
     summa = models.DecimalField(verbose_name='Стоимость', max_digits=8, decimal_places=2, default=0)
+    status = models.TextField(verbose_name='Статус', default='В обработке')
 
     def get_absolute_url(self):
         return reverse("orders",args=[str(self.id)])

@@ -170,7 +170,6 @@ def orders(request):
         request,
         'orders.html',
         {
-            
             'title':'Заказы',
             'posts':posts,
             'year':datetime.now().year
@@ -184,9 +183,39 @@ def orderdetails(request):
         request,
         'orderdetails.html',
         {
-            
+            'summa':posts.summa,
             'title':'Заказ #'+str(posts.id)+' от '+str(posts.posted),
             'post':posts,
+        }
+    )
+
+def cancel_order_manager(request):
+    order = Orders.objects.get(id =request.GET.get('post'))
+    order.delete()
+    posts=Orders.objects.all()
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'orders.html',
+        {
+            'posts':posts,
+            'title':'Заказы',
+            'year':datetime.now().year
+        }
+    )
+
+def cancel_order_user(request):
+    order = Orders.objects.get(id =request.GET.get('post'))
+    order.delete()
+    posts=Orders.objects.filter(author=get_user(request))
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'orders.html',
+        {
+            'posts':posts,
+            'title':'Заказы',
+            'year':datetime.now().year
         }
     )
 
@@ -208,6 +237,8 @@ def create_order(request):
     order = Orders.objects.create(author=get_user(request))
     for cartitem in ShoppingCart.objects.filter(author=get_user(request)):
         order.content += cartitem.title+ "     x"+cartitem.quantity.__str__()+";\n"
+        order.summa += cartitem.summa
+        cartitem.delete()
         order.save()
     assert isinstance(request, HttpRequest)
     return redirect(reverse('orders'))

@@ -8,12 +8,30 @@
 <hr />
 <div style="padding-left:50px; padding-right:50px;">
     <h2>#{{post.id}} от {{post.posted}}</h2>
-    <h2>{{post.content}}</h2>
+    <h2>Товары: {{post.content}}</h2>
+    <h2>Сумма: {{post.summa}}</h2>
+    <h2>Статус: {{post.status}}</h2>
     <h3>
-        <a style="padding-left:50px" href="{% url 'orderdetails' %}?post={{ post.id }}">
+        <a  href="{% url 'orderdetails' %}?post={{ post.id }}">
             Детали заказа
         </a>
     </h3>
+    <h4 style="padding-top:10px">
+        {% if not post.status is 'В пути' or not post.status is 'Завершен' %}
+            {% if user.is_superuser or user.is_staff %}
+            <a style="padding-right:50px; align-items:end" href="{% url 'cancel_order_manager' %}?post={{ post.id }}">
+                Отменить заказ
+            </a>
+            {% else %}
+            <a style="padding-right:50px; align-items:end" href="{% url 'cancel_order_user' %}?post={{ post.id }}">
+                Отменить заказ
+            </a>
+            {% endif %}
+        {% endif %}
+    </h4>
+
+    
+
 </div>
 {% endfor %}
 {% endblock navbarOnAbout %}
