@@ -17,16 +17,16 @@
         </a>
     </h3>
     <h4 style="padding-top:10px">
-        {% if not post.status is 'В пути' or not post.status is 'Завершен' %}
-            {% if user.is_superuser or user.is_staff %}
-            <a style="padding-right:50px; align-items:end" href="{% url 'cancel_order_manager' %}?post={{ post.id }}">
-                Отменить заказ
-            </a>
-            {% else %}
-            <a style="padding-right:50px; align-items:end" href="{% url 'cancel_order_user' %}?post={{ post.id }}">
-                Отменить заказ
-            </a>
-            {% endif %}
+        {% if not post.status == 'В пути' and not post.status == 'Завершен' %}
+        {% if user.is_superuser or user.is_staff %}
+        <a style="padding-right:50px; align-items:end" href="{% url 'cancel_order_manager' %}?post={{ post.id }}">
+            Отменить заказ
+        </a>
+        {% else %}
+        <a style="padding-right:50px; align-items:end" href="{% url 'cancel_order_user' %}?post={{ post.id }}">
+            Отменить заказ
+        </a>
+        {% endif %}
         {% endif %}
     </h4>
 
